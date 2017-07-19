@@ -1,0 +1,17 @@
+#Following code was written in Hive
+
+CREATE TABLE listings (id int, host_id int, host_response_time string, host_response_rate string, is_location_exact string, property_type string, room_type string, accommodates int, bathrooms int, bedrooms int, beds int, bed_type string, amenities string, price double, security_deposit double, cleaning_fee double, guests_included int, extra_people double, minimum_nights int, maximum_nights int, number_of_reviews int, review_scores_rating int, review_scores_cleanliness int, review_scores_checkin int, review_scores_communication int, review_scores_location int, review_scores_value int, cancellation_policy string, reviews_per_month double) row format delimited fields terminated by ',';
+
+LOAD DATA LOCAL INPATH '/home/Downloads/listings.csv' OVERWRITE INTO TABLE listings;
+
+SELECT avg(price) from listings;
+
+SELECT stddev(price) from listings;
+
+SELECT count(id) from listings where price >= 219;
+
+SELECT count(id) from listings where price <= 45;
+
+SELECT id from listings where price >= 219;
+
+SELECT id from listings where price <= 45;
